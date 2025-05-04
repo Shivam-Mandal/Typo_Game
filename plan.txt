@@ -1,0 +1,12 @@
+[Frontend (React)]
+ |-- Typing Area
+ |-- Player Progress Bars
+ |-- Real-time WPM
+ |-- Socket.IO Client
+
+[Backend (Node + Express)]
+ |-- Socket.IO Server
+ |-- Room/Player Manager
+ |-- Real-time WPM Broadcasting
+ |-- Start Countdown + Match Timer
+
