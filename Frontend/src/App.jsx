@@ -150,145 +150,146 @@ const App = () => {
 
   }
   return (
-    <div className="p-4 md:p-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen font-sans bg-no-repeat w-full bg-cover overflow-hidden scroll-smooth" style={{ backgroundImage: `url('bg_img_2.jpg')`}}>
-      <h1 className="text-4xl md:text-5xl font-extrabold tracking-widest mb-7 text-center text-amber-800">
-        TYPO
-      </h1>
-      {!joined && (<div className="text-center font-extrabold text-7xl mb-10">
-        <span className="inline-block mb-4 text-amber-500">Increase your typing speed while playing Games...</span>
-        <div className="flex justify-center gap-8">
-          {/* <img src=".\src\assets\typing_game_icon.png" alt="Typing Speed" className="w-24 h-24 md:w-32 md:h-32 transition-all transform hover:scale-110" /> */}
-          <div className="text-center">
-            <p className="text-2xl font-semibold text-amber-800">Challenge yourself and compete with players around the world!</p>
-            <p className="mt-2 text-lg text-amber-900">Start typing fast and test your limits. Let's see if you can beat the best!</p>
-          </div>
-        </div>
-      </div>)}
-      {!joined ? (
-        <div className="max-w-md mx-auto bg-gray-800/70 rounded-xl shadow-xl p-8 space-y-6 backdrop-blur">
-          {action === null ? (
+    <div className="  bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen font-sans bg-no-repeat w-full bg-cover overflow-hidden scroll-smooth absolute" style={{ backgroundImage: `url('bg_img_2.jpg')` }}>
+      <div className="bg-gray-800/40 backdrop-blur shadow-md pt-5 px-4 pb-4 md:px-16 md:pb-16 text-white min-h-screen">
 
-            <div className="flex flex-col gap-4">
-
-              <button
-                onClick={() => setAction('create')}
-                className="bg-indigo-600 hover:bg-indigo-500 transition-colors duration-200 px-6 py-3 rounded-lg font-semibold cursor-pointer"
-              >
-                Create Room or Play Individual
-              </button>
-              <button
-                onClick={() => setAction('join')}
-                className="bg-emerald-600 hover:bg-emerald-500 transition-colors duration-200 px-6 py-3 rounded-lg font-semibold cursor-pointer"
-              >
-                Join Room
-              </button>
+        {/* <h1 className="text-4xl md:text-5xl font-extrabold tracking-widest mb-7 text-center text-cyan-700"> */}
+        <img src="typo_bg.png" alt="" className='mx-auto w-30 md:w-30 object-contain mb-5' />
+        {/* </h1> */}
+        {!joined && (<div className="text-center font-extrabold text-7xl mb-10">
+          <span className="inline-block mb-4  text-white">Increase your typing speed while playing Games...</span>
+          <div className="flex justify-center gap-8">
+            {/* <img src=".\src\assets\typing_game_icon.png" alt="Typing Speed" className="w-24 h-24 md:w-32 md:h-32 transition-all transform hover:scale-110" /> */}
+            <div className="text-center">
+              <p className="text-2xl font-semibold  text-white">Challenge yourself and compete with players around the world!</p>
+              <p className="mt-2 text-lg  text-white">Start typing fast and test your limits. Let's see if you can beat the best!</p>
             </div>
-          ) : (
-            <div className="space-y-4">
-              {action !== 'create' && (
-                <input
-                  type="text"
-                  placeholder="Enter Room ID"
-                  value={roomId}
-                  onChange={(e) => setRoomId(e.target.value)}
-                  className="w-full px-4 py-2 rounded-md bg-gray-900 border border-gray-700 focus:ring-2 focus:ring-indigo-500 outline-none"
-                />
-              )}
-              <input
-                type="text"
-                placeholder="Enter Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                className="w-full px-4 py-2 rounded-md bg-gray-900 border border-gray-700 focus:ring-2 focus:ring-indigo-500 outline-none"
-              />
-              {action === 'create' ? (
+          </div>
+        </div>)}
+        {!joined ? (
+          <div className="max-w-md mx-auto bg-gray-800/70 rounded-xl shadow-xl p-8 space-y-6 backdrop-blur">
+            {action === null ? (
+
+              <div className="flex flex-col gap-4">
+
                 <button
-                  onClick={handleCreateRoom}
-                  className="bg-purple-600 hover:bg-purple-500 transition px-6 py-2 rounded-md w-full cursor-pointer"
+                  onClick={() => setAction('create')}
+                  className="bg-indigo-600 hover:bg-indigo-500 transition-colors duration-200 px-6 py-3 rounded-lg font-semibold cursor-pointer"
                 >
                   Create Room or Play Individual
                 </button>
-              ) : (
                 <button
-                  onClick={handleJoin}
-                  className="bg-green-600 hover:bg-green-500 transition px-6 py-2 rounded-md w-full cursor-pointer"
+                  onClick={() => setAction('join')}
+                  className="bg-emerald-600 hover:bg-emerald-500 transition-colors duration-200 px-6 py-3 rounded-lg font-semibold cursor-pointer"
                 >
                   Join Room
                 </button>
-              )}
-              <button
-                onClick={() => setAction(null)}
-                className="bg-gray-700 hover:bg-gray-600 transition px-6 py-2 rounded-md w-full cursor-pointer"
-              >
-                Cancel
-              </button>
-            </div>
-          )}
-        </div>
-      ) : (
-        <div className="max-w-4xl mx-auto space-y-6">
-          <div className="bg-gray-800/60 rounded-lg shadow-md p-6 backdrop-blur">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <div>
-                <p className="text-lg">Room ID: <span className="font-semibold text-yellow-300">{roomId}</span></p>
-                <p className="text-sm text-gray-300">(Invite others with this ID)</p>
-                <p className="text-md mt-2">You are {isHost ? 'Host' : 'Player'}: <strong className="text-green-300">{username}</strong></p>
               </div>
-              <button
-                onClick={handleLeaveRoom}
-                className="bg-gray-700 hover:bg-red-500 transition px-5 py-2 rounded-md font-medium cursor-pointer"
-              >
-                Leave Room
-              </button>
-            </div>
-          </div>
-
-          {isHost && (
-            <>
-              <div className="flex justify-center gap-4 flex-wrap">
-                {[10, 30, 60].map(time => (
+            ) : (
+              <div className="space-y-4">
+                {action !== 'create' && (
+                  <input
+                    type="text"
+                    placeholder="Enter Room ID"
+                    value={roomId}
+                    onChange={(e) => setRoomId(e.target.value)}
+                    className="w-full px-4 py-2 rounded-md bg-gray-900 border border-gray-700 focus:ring-2 focus:ring-indigo-500 outline-none"
+                  />
+                )}
+                <input
+                  type="text"
+                  placeholder="Enter Username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  className="w-full px-4 py-2 rounded-md bg-gray-900 border border-gray-700 focus:ring-2 focus:ring-indigo-500 outline-none"
+                />
+                {action === 'create' ? (
                   <button
-                    key={time}
-                    className={`px-5 py-2 rounded-lg font-semibold transition cursor-pointer
-                ${startTime === time ? 'bg-yellow-600 shadow-lg' : 'bg-gray-700 hover:bg-gray-600'}`}
-                    onClick={() => handleButtonClicked(time)}
+                    onClick={handleCreateRoom}
+                    className="bg-purple-600 hover:bg-purple-500 transition px-6 py-2 rounded-md w-full cursor-pointer"
                   >
-                    {time} sec
+                    Create Room or Play Individual
                   </button>
-                ))}
-              </div>
-              <div className="flex justify-center pt-4">
+                ) : (
+                  <button
+                    onClick={handleJoin}
+                    className="bg-green-600 hover:bg-green-500 transition px-6 py-2 rounded-md w-full cursor-pointer"
+                  >
+                    Join Room
+                  </button>
+                )}
                 <button
-                  onClick={startMatch}
-                  className="bg-indigo-700 hover:bg-indigo-600 transition px-6 py-2 rounded-lg font-bold tracking-wide cursor-pointer"
+                  onClick={() => setAction(null)}
+                  className="bg-gray-700 hover:bg-gray-600 transition px-6 py-2 rounded-md w-full cursor-pointer"
                 >
-                  Start Match
+                  Cancel
                 </button>
               </div>
-            </>
-          )}
+            )}
+          </div>
+        ) : (
+          <div className="max-w-5xl mx-auto space-y-6">
+            <div className="bg-gray-800/20 rounded-lg shadow-md p-6 backdrop-blur">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                  <p className="text-lg">Room ID: <span className="font-semibold text-yellow-300">{roomId}</span></p>
+                  <p className="text-sm text-gray-300">(Invite others with this ID)</p>
+                  <p className="text-md mt-2">You are {isHost ? 'Host' : 'Player'}: <strong className="text-green-300">{username}</strong></p>
+                </div>
+                <button
+                  onClick={handleLeaveRoom}
+                  className="bg-gray-700 hover:bg-red-500 transition px-5 py-2 rounded-md font-medium cursor-pointer"
+                >
+                  Leave Room
+                </button>
+              </div>
+            </div>
 
-          {countdown !== null && (
-            <h2 className="text-xl text-center font-bold animate-ping">
-              {countdown}
-            </h2>
-          )}
+            {isHost && (
+              <>
+                <div className="flex justify-center gap-4 flex-wrap">
+                  {[10, 30, 60].map(time => (
+                    <button
+                      key={time}
+                      className={`px-5 py-2 rounded-lg font-semibold transition cursor-pointer
+                ${startTime === time ? 'bg-yellow-600 shadow-lg' : 'bg-gray-700 hover:bg-gray-600'}`}
+                      onClick={() => handleButtonClicked(time)}
+                    >
+                      {time} sec
+                    </button>
+                  ))}
+                </div>
+                <div className="flex justify-center pt-4">
+                  <button
+                    onClick={startMatch}
+                    className="bg-indigo-700 hover:bg-indigo-600 transition px-6 py-2 rounded-lg font-bold tracking-wide cursor-pointer"
+                  >
+                    Start Match
+                  </button>
+                </div>
+              </>
+            )}
 
-          {start && (
-            <TypingBox socket={socket} roomId={roomId} sampleText={sampleText} disabled={countdown && countdown > 0} startTime={startTime} />
-          )}
+            {countdown !== null && (
+              <h2 className="text-xl text-center font-bold animate-ping">
+                {countdown}
+              </h2>
+            )}
+            {start && (
+              <TypingBox socket={socket} roomId={roomId} sampleText={sampleText} disabled={countdown && countdown > 0} startTime={startTime} />
+            )}
 
-          <Progress players={players} />
+            <Progress players={players} />
+            {showLeaderboard && startTime ? (
+              <Leaderboard leaderboard={leaderboard} showLeaderboard startTime={startTime} />
+            ) : (
+              <p className="text-xl">Leaderboard is waiting for match to finish...</p>
+            )}
 
+          </div>
+        )}
+      </div>
 
-          {showLeaderboard && startTime ? (
-            <Leaderboard leaderboard={leaderboard} showLeaderboard startTime={startTime} />
-          ) : (
-            <p className="text-xl">Leaderboard is waiting for match to finish...</p>
-          )}
-
-        </div>
-      )}
     </div>
 
   );
