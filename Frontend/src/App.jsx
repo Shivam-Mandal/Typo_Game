@@ -5,7 +5,7 @@ import Progress from './components/Progress';
 import Leaderboard from './components/Leaderboard';
 
 // const socket = io('http://localhost:5000');
-const socket = io('https://typo-game-rho.vercel.app/');
+const socket = io('https://typospeed.vercel.app');
 
 
 const App = () => {
