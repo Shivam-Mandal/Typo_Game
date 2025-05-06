@@ -7,7 +7,7 @@ const app = express();
 app.use(cors())
 
 const server = http.createServer(app);
-const io = socketIo(server, { cors: { origin: "*" }, methods: ['GET', 'POST'] })
+const io = socketIo(server, { cors: { origin: "https://typo-game.onrender.com" }, methods: ['GET', 'POST'] })
 
 const rooms = {}
 const sampleTexts = [
