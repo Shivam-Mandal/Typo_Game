@@ -4,13 +4,15 @@ import TypingBox from './components/TypingBox';
 import Progress from './components/Progress';
 import Leaderboard from './components/Leaderboard';
 
-const socket = io('http://localhost:5000');
+// const socket = io('http://localhost:5000');
+const socket = io('https://typo-game-rho.vercel.app/');
+
 
 const App = () => {
   const [roomId, setRoomId] = useState('');
   const [username, setUsername] = useState('');
   const [joined, setJoined] = useState(false);
-  const [action, setAction] = useState(null);  // Added state to track whether to create or join
+  const [action, setAction] = useState(null);  
   const [players, setPlayers] = useState([]);
   const [countdown, setCountdown] = useState(null);
   const [start, setStart] = useState(false);
