@@ -8,7 +8,7 @@ app.use(cors())
 
 const server = http.createServer(app);
 // const io = socketIo(server, { cors: { origin: "https://typospeed.onrender.com" }, methods: ['GET', 'POST'], credentials: true })
-const io = socketIo(server, { cors: { origin: "https://typospeedpro.vercel.app" }, methods: ['GET', 'POST'], credentials: true })
+const io = socketIo(server, { cors: { origin: "https://typospeedpro.vercel.app" }, methods: ['GET', 'POST', 'PUT', 'DELETE'], credentials: true })
 
 const rooms = {}
 const sampleTexts = [
