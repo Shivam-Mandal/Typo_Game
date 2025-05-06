@@ -4,7 +4,10 @@ const socketIo = require('socket.io')
 const cors = require('cors');
 
 const app = express();
-app.use(cors())
+app.use(cors({
+  origin: "https://typospeed.onrender.com",
+  credentials: true
+}))
 
 const server = http.createServer(app);
 const io = socketIo(server, { cors: { origin: "https://typospeed.onrender.com" }, methods: ['GET', 'POST', 'PUT', 'DELETE'], credentials: true })
