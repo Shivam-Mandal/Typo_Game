@@ -7,7 +7,7 @@ const app = express();
 app.use(cors())
 
 const server = http.createServer(app);
-const io = socketIo(server, { cors: { origin: "https://typospeed.onrender.com" }, methods: ['GET', 'POST'] })
+const io = socketIo(server, { cors: { origin: "https://typospeed.onrender.com" }, methods: ['GET', 'POST'], credentials: true })
 
 const rooms = {}
 const sampleTexts = [
