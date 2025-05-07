@@ -286,7 +286,7 @@ const App = () => {
             )}
 
             <Progress players={players} />
-            {player.length>1 && showLeaderboard && startTime ? (
+            {players.length>1 && showLeaderboard && startTime ? (
               <Leaderboard leaderboard={leaderboard} showLeaderboard startTime={startTime} />
             ) : (
               <p className="text-xl">Leaderboard is waiting for match to finish...</p>
