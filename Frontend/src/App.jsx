@@ -285,12 +285,14 @@ const App = () => {
               <TypingBox socket={socket} roomId={roomId} sampleText={sampleText} disabled={countdown && countdown > 0} startTime={startTime} />
             )}
 
-            <Progress players={players} />
-            {players.length>1 && showLeaderboard && startTime ? (
-              <Leaderboard leaderboard={leaderboard} showLeaderboard startTime={startTime} />
+           {players.length > 1 ? (
+              showLeaderboard && startTime ? (
+                  <Leaderboard leaderboard={leaderboard} showLeaderboard={showLeaderboard} startTime={startTime} />
             ) : (
               <p className="text-xl">Leaderboard is waiting for match to finish...</p>
-            )}
+            )
+          ) : null}
+            
 
           </div>
         )}
